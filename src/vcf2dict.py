@@ -91,16 +91,16 @@ def vcf2dict(vcf_file):
             # search if the key is unique or not.
 
             # If key is not unique make a list
-            if data.contents['fn'][0].value  in main_data:
+            name_key = data.contents['fn'][0].value
+            if name_key  in main_data:
 
-                main_data.update({ data.contents['fn'][0].value : [] })
+                main_data.update({ name_key : [] })
                 #duplicate_key.update({data.contents['fn'][0].value :  a+1 })
-                duplicate_key[data.contents['fn'][0].value] += 1
+                duplicate_key[name_key] += 1
 
             # Else make a dictionary insted of list
             else:
-                main_data.update({ data.contents['fn'][0].value : {} })
-            #main_data.update({ data.contents['fn'][0].value : {} })
+                main_data.update({ name_key : {} })
 
 
         except KeyError:
