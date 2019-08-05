@@ -1,9 +1,13 @@
 class Person:
     def __init__(self,datas):
-        self.rect = pg.Rect(rect)
         self.set_values(datas)
 
     def set_values(self,datas):
+        """ Sets values of required fields
+
+        It takes the data from dictionary and store them as
+        attribute of this object"""
+        
         defaults = {"name"  : None,
                     "tel"   : None,
                     "email" : None,
