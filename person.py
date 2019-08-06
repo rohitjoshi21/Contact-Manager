@@ -8,12 +8,15 @@ class Person:
         It takes the data from dictionary and store them as
         attribute of this object"""
         
-        defaults = {"name"  : None,
+        defaults = {"n"     : None,
+                    "fn"    : None,
                     "tel"   : None,
                     "email" : None,
-                    "adr"   : None}
+                    "adr"   : None,
+                    "org"   : None,
+                    "photo" : None,}
                     
-        for field in information:
+        for field in datas:
             if field in defaults:
                 defaults[field] = datas[field]
             else:
