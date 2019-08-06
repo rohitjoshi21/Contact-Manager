@@ -1,81 +1,5 @@
 BEGIN:VCARD
 VERSION:3.0
-FN:Kedar Giri
-N:Giri;Kedar;;;
-TEL;TYPE=CELL:9842624615
-ADR;TYPE=HOME:;;kankai M. Campus- Jhapa;;;;
-ADR;TYPE=HOME:;;kankai M. Campus- Jhapa;;;;
-ADR;TYPE=HOME:;;kankai M. Campus- Jhapa;;;;
-item1.ORG:Nepal Publi campus Sangh
-item1.X-ABLabel:Work
-item2.ORG:Nepal Publi campus Sangh
-item2.X-ABLabel:Work
-item3.ORG:Nepal Publi campus Sangh
-item3.X-ABLabel:Work
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-FN:Krishna Raj Giri
-N:Giri;Krishna;Raj;;
-TEL;TYPE=CELL:9841747738
-TEL;TYPE=HOME:9848699115
-ADR;TYPE=HOME:;;Toli\, Bajura;;;;
-ADR;TYPE=HOME:;;Toli\, Bajura;;;;
-ADR;TYPE=HOME:;;Toli\, Bajura;;;;
-item1.ORG:Badimalika Bajura Hotel Dhangadhi\, kailali
-item1.X-ABLabel:Work
-item2.ORG:Badimalika Bajura Hotel Dhangadhi\, kailali
-item2.X-ABLabel:Work
-item3.ORG:Badimalika Bajura Hotel Dhangadhi\, kailali
-item3.X-ABLabel:Work
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-PRODID:-//Apple Inc.//iOS 12.0.1//EN
-N:;Giridhari Lal Neupane -CPN-CCM;;;
-FN:Giridhari Lal Neupane -CPN-CCM
-REV:2018-11-05T16:18:00Z
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-PRODID:-//Apple Inc.//iOS 12.0.1//EN
-N:;Giriraj Mani Pokharel -CPN-CCM;;;
-FN:Giriraj Mani Pokharel -CPN-CCM
-REV:2018-11-05T16:18:00Z
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-FN:Git B Bist-Bayal
-N:;Git B Bist-Bayal;;;
-TEL;TYPE=CELL:9848701152
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-FN:Gita Basnet-Ilam-Ilam Bazar-Hakim Tole-Mechi-Pysn-Dp
-N:;Gita Basnet-Ilam-Ilam Bazar-Hakim Tole-Mechi-Pysn-Dp;;;
-TEL;TYPE=CELL:9842647617
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-FN:Gita Chori
-N:;Gita Chori;;;
-TEL;TYPE=CELL:986-3097793
-TEL;TYPE=WORK:9821630716
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-FN:Gita Joshi-Daughter-Daily Responding Person-DRP
-N:;Gita Joshi-Daughter-Daily Responding Person-DRP;;;
-TEL;TYPE=CELL:9863097793
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-FN:Gita Nath
-N:;Gita Nath;;;
-TEL;TYPE=CELL:9861860451
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
 FN:Gita Nath-Jaishi-Jhargaun
 N:;Gita Nath-Jaishi-Jhargaun;;;
 TEL;TYPE=CELL:9825629727
@@ -416,6 +340,82 @@ VERSION:3.0
 FN:Gopi Padhya-Jethan
 N:;Gopi Padhya-Jethan;;;
 TEL;TYPE=CELL:9749045661
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Kedar Giri
+N:Giri;Kedar;;;
+TEL;TYPE=CELL:9842624615
+ADR;TYPE=HOME:;;kankai M. Campus- Jhapa;;;;
+ADR;TYPE=HOME:;;kankai M. Campus- Jhapa;;;;
+ADR;TYPE=HOME:;;kankai M. Campus- Jhapa;;;;
+item1.ORG:Nepal Publi campus Sangh
+item1.X-ABLabel:Work
+item2.ORG:Nepal Publi campus Sangh
+item2.X-ABLabel:Work
+item3.ORG:Nepal Publi campus Sangh
+item3.X-ABLabel:Work
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Krishna Raj Giri
+N:Giri;Krishna;Raj;;
+TEL;TYPE=CELL:9841747738
+TEL;TYPE=HOME:9848699115
+ADR;TYPE=HOME:;;Toli\, Bajura;;;;
+ADR;TYPE=HOME:;;Toli\, Bajura;;;;
+ADR;TYPE=HOME:;;Toli\, Bajura;;;;
+item1.ORG:Badimalika Bajura Hotel Dhangadhi\, kailali
+item1.X-ABLabel:Work
+item2.ORG:Badimalika Bajura Hotel Dhangadhi\, kailali
+item2.X-ABLabel:Work
+item3.ORG:Badimalika Bajura Hotel Dhangadhi\, kailali
+item3.X-ABLabel:Work
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iOS 12.0.1//EN
+N:;Giridhari Lal Neupane -CPN-CCM;;;
+FN:Giridhari Lal Neupane -CPN-CCM
+REV:2018-11-05T16:18:00Z
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//iOS 12.0.1//EN
+N:;Giriraj Mani Pokharel -CPN-CCM;;;
+FN:Giriraj Mani Pokharel -CPN-CCM
+REV:2018-11-05T16:18:00Z
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Git B Bist-Bayal
+N:;Git B Bist-Bayal;;;
+TEL;TYPE=CELL:9848701152
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Gita Basnet-Ilam-Ilam Bazar-Hakim Tole-Mechi-Pysn-Dp
+N:;Gita Basnet-Ilam-Ilam Bazar-Hakim Tole-Mechi-Pysn-Dp;;;
+TEL;TYPE=CELL:9842647617
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Gita Chori
+N:;Gita Chori;;;
+TEL;TYPE=CELL:986-3097793
+TEL;TYPE=WORK:9821630716
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Gita Joshi-Daughter-Daily Responding Person-DRP
+N:;Gita Joshi-Daughter-Daily Responding Person-DRP;;;
+TEL;TYPE=CELL:9863097793
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Gita Nath
+N:;Gita Nath;;;
+TEL;TYPE=CELL:9861860451
 END:VCARD
 BEGIN:VCARD
 VERSION:3.0

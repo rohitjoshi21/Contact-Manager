@@ -73,9 +73,7 @@ def dictToVcard(dicts):
     return None
 
 def sortContacts(cons):
-    
-    sortedcontacts = cons
-    return sortedcontacts
+    cons.sort(key=lambda x: x.name.lower()) 
 
 if __name__ == '__main__':
     c = getSeparateVcards(a)

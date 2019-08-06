@@ -14,13 +14,13 @@ for vcard in vcards:
     new_contact = Person(inf) #creates a new person object for each contact
     CONTACTS.append(new_contact)
 
+
+#in_place contacts sorting on the basis of attribute name
+sortContacts(CONTACTS) 
+
+
 for c in CONTACTS:
-    print(c.fn)
-
-
-    
-#CONTACTS = sortContacts(CONTACTS) #sorts contacts on the basis of name order
-
+    print(c.name)
 
 #performs anything here like adding new contact,editing
 #
@@ -29,7 +29,7 @@ for c in CONTACTS:
 #
 #
 
-##CONTACTS = sortContacts(CONTACTS) #sort contacts again at last
+##sortContacts(CONTACTS)
 ##
 ##outputfile = open('Modified '+VCF_FILE,'w')
 ##for contact in CONTACTS:
