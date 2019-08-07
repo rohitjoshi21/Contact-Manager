@@ -1,6 +1,6 @@
 import re
 import vobject
-
+import pandas as pd
 
 a =\
 '''BEGIN:VCARD
@@ -54,7 +54,7 @@ def getSeparateVcards(dump):
     return match   
 
     
-def vcardToDict(vcard_raw,required = ['n','fn','tel','email','photo','adr','org']):
+def vcardToDict(vcard_raw,required = ['fn','tel','email','photo','adr','org']):
     inf = {}
     data = vobject.readOne(vcard_raw) #converting vcard in vobject
 
@@ -75,6 +75,32 @@ def dictToVcard(dicts):
 def sortContacts(cons):
     cons.sort(key=lambda x: x.name.lower()) 
 
+
+def contactsTable(cons):
+    name = [person.name for person in cons]
+    phone = [person.phone for person in cons]
+    df = pd.DataFrame({'name':name,'phone':phone}) #create a pandas dataframe of contacts
+    df.style.set_properties(**{'text-align': 'left'})
+    return df
+
+def getNewContact():
+    infs = {}
+    infs['fn'] = name = input('\n Enter the name:- ')
+    infs['tel'] = input('Enter the phone number:- ')
+    infs['email'] = input('Enter the email:- ')
+    return infs
+
+def searchContact(cons,q):
+    index = None
+    if q.isdigit and 9<=len(q)<=10:
+        #search the number in phone of contacts and return the index
+        pass
+
+    else:
+        #search the name in contacts and return the index
+
+    return index
+    
 if __name__ == '__main__':
     c = getSeparateVcards(a)
     print(vcardToDict(c[1]))
