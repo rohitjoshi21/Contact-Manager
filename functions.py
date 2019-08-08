@@ -2,6 +2,7 @@ import re
 import vobject
 import pandas as pd
 
+#Sample Data
 a =\
 '''BEGIN:VCARD
 VERSION:3.0
@@ -69,7 +70,13 @@ def vcardToDict(vcard_raw,required = ['fn','tel','email','photo','adr','org']):
 
     return inf
 
-def dictToVcard(dicts):
+def dictToVcard(contactObj):
+    '''Returns a vcard format text for a single contact having
+    the required information
+    contactObj must contains following attributes:-
+    name,address,phone,org,.....'''
+    
+    #Not Completed
     return None
 
 def sortContacts(cons):
@@ -77,6 +84,7 @@ def sortContacts(cons):
 
 
 def contactsTable(cons):
+    '''Returns a pandas table of the contacts'''
     name = [person.name for person in cons]
     phone = [person.phone for person in cons]
     df = pd.DataFrame({'name':name,'phone':phone}) #create a pandas dataframe of contacts
@@ -92,6 +100,8 @@ def getNewContact():
 
 def searchContact(cons,q):
     index = None
+    
+    #Checking whether it is phone number or contact name
     if q.isdigit and 9<=len(q)<=10:
         #search the number in phone of contacts and return the index
         pass

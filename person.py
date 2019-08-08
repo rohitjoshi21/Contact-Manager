@@ -15,10 +15,14 @@ class Person:
                    'org':self.org}
         
     def getValue(self,fieldname):
+        '''Returns the value of specific attributes of the
+        contact object'''
         return self.mapping[fieldname]
         
 
     def setValue(self,fieldname,value):
-        self.mapping[fieldname] = value
-        #Its wrong
+        '''Set the value of an object attributes as provided
+        in the parameter'''
+        #Not Done
+
     
