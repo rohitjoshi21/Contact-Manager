@@ -1,0 +1,3 @@
+Write a search algortihm in function.py
+Read multiple phone numbers
+GUI Needed

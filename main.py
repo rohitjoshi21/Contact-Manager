@@ -2,6 +2,10 @@ from person import Person
 from functions import *
 
 
+
+VCF_FILE_NAME = 'Modified sample.vcf'
+
+
 attributesListMessage = \
 '''
 What do you want to edit? \n
@@ -24,7 +28,7 @@ What do you want to do? \n
 '''
 
 #Location of vcf file
-VCF_FILE_NAME = 'sample.vcf'
+
 
 contents = open(VCF_FILE_NAME).read()
 vcards = getSeparateVcards(contents) #breaks whole vcard file into seperate vcards
@@ -110,13 +114,12 @@ while not exit:
 
 
 
-
 sortContacts(CONTACTS)
 
 #Saving contacts in new vcard file
 outputfile = open('Modified '+VCF_FILE_NAME,'w')
 for contact in CONTACTS:
-    f = dictToVcard(contact) #returns vcard text from dictionary given
-    outputfile.write(f+'\n')
+    f = objToVcard(contact) #returns vcard text from dictionary given
+    outputfile.write(f)
 
 outputfile.close()

@@ -41,11 +41,8 @@ END:VCARD
 BEGIN:VCARD
 VERSION:3.0
 FN:A-Z-Bahungaun-8Bada-10-BGM-Bajura-7-Vot-DV-FV-PBM-CCM-DCM-CM-VMCM-WCM-IN
-CH-VMCP/C-PM-MIN-MP-VML-DL-WL-VL-TL-BL-HL-HH-MOV-NCV-UMLV-OV-NV-Ma-Fe-Da-OC
-APA-SF-GOE-NGOE-POE-BOE-UP-NCe
-N:;A-Z-Bahungaun-8Bada-10-BGM-Bajura-7-Vot-DV-FV-PBM-CCM-DCM-CM-VMCM-WCM-IN
-CH-VMCP/C-PM-MIN-MP-VML-DL-WL-VL-TL-BL-HL-HH-MOV-NCV-UMLV-OV-NV-Ma-Fe-Da-OC
--APA-SF-GOE-NGOE-POE-BOE-UP-NCe;;;
+N:;A-Z-Bahungaun-8Bada-10-BGM-Bajura-7-Vot-DV-FV-PBM-CCM-DCM-CM-VMCM-WCM-IN;;;
+ADDRESS: Kathmandu, Nepal
 END:VCARD'''
 
 
@@ -61,10 +58,7 @@ def vcardToDict(vcard_raw,required = ['fn','tel','email','photo','adr','org']):
 
     for r in required:
         if r in data.contents.keys():
-            try:
-                inf[r] = data.contents[r][0].value #adding required field in our data
-            except:
-                pass
+            inf[r] = str(data.contents[r][0].value).replace('\n','') #adding required field in our data
         else:
             inf[r] = None
 
@@ -78,14 +72,21 @@ def get_int_input(min=1,max=4):
         op =  get_input()
     return int(op)
 
-def dictToVcard(contactObj):
+def objToVcard(obj):
+    replace = {'name':'fn','email':'email','phone':'tel','address':'adr','photo':'photo','org':'org'}
+    
     '''Returns a vcard format text for a single contact object having
     the required information
     contactObj must contains following attributes:-
     name,address,phone,org,.....'''
-    
-    #Not Completed
-    return ' '
+    person = obj.__dict__
+    person = {replace[key]: value for key,value in person.items() if value != None}
+    print(person)
+    vcard = vobject.readOne('\n'.join([f'{k}:{v}' for k, v in person.items()]))
+    vcard.name = 'VCARD'
+    vcard.useBegin = True
+    return vcard.serialize()
+
 
 def sortContacts(cons):
     cons.sort(key=lambda x: x.name.lower()) 
@@ -129,6 +130,6 @@ def searchContact(cons,q):
     
 if __name__ == '__main__':
     c = getSeparateVcards(a)
-    print(vcardToDict(c[1]))
+    print(vcardToDict(c[-1]))
 
 
