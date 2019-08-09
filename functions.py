@@ -70,14 +70,22 @@ def vcardToDict(vcard_raw,required = ['fn','tel','email','photo','adr','org']):
 
     return inf
 
+def get_int_input(min=1,max=4):
+    '''Return integer input within min and max range'''
+    op = input()
+    if not op.isdigit() or int(op) < min or int(op)> max:
+        print('Invalid Input. Enter again ? \n')
+        op =  get_input()
+    return int(op)
+
 def dictToVcard(contactObj):
-    '''Returns a vcard format text for a single contact having
+    '''Returns a vcard format text for a single contact object having
     the required information
     contactObj must contains following attributes:-
     name,address,phone,org,.....'''
     
     #Not Completed
-    return None
+    return ' '
 
 def sortContacts(cons):
     cons.sort(key=lambda x: x.name.lower()) 
@@ -93,12 +101,19 @@ def contactsTable(cons):
 
 def getNewContact():
     infs = {}
-    infs['fn'] = name = input('\n Enter the name:- ')
+    infs['fn'] = name = input('\nEnter the name:- ')
     infs['tel'] = input('Enter the phone number:- ')
     infs['email'] = input('Enter the email:- ')
+    infs['adr'] = input('Enter your address:- ')
     return infs
 
 def searchContact(cons,q):
+    '''
+    Search contacts (cons) with the given query (q)
+    And return index of the found contact'''
+    
+    #Not Completed
+    
     index = None
     
     #Checking whether it is phone number or contact name
@@ -107,6 +122,7 @@ def searchContact(cons,q):
         pass
 
     else:
+        pass
         #search the name in contacts and return the index
 
     return index

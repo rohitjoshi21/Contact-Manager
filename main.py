@@ -7,25 +7,27 @@ attributesListMessage = \
 What do you want to edit? \n
 1. Name
 2. Phone
-2. Email
-3. Address
-4. Org
+3. Email
+4. Address
+5. Org
 '''
+attributes = ['name','phone','email','address','org']
 
 optionsListMessage = \
 '''
 What do you want to do? \n
 1. Add new contact
 2. Edit existing contact
-3. Delete a contac
-4. Save and exit
+3. Delete a contact
+4. Display contacts
+5. Save and exit
 '''
 
 #Location of vcf file
-VCF_FILE = 'sample.vcf'
+VCF_FILE_NAME = 'sample.vcf'
 
-contents = open(VCF_FILE).read()
-vcards = getSeparateVcards(contents) #breaks vcard file into seperate contacts
+contents = open(VCF_FILE_NAME).read()
+vcards = getSeparateVcards(contents) #breaks whole vcard file into seperate vcards
 
 
 CONTACTS = []
@@ -36,22 +38,16 @@ for vcard in vcards:
 
 
 #in_place contacts sorting on the basis of attribute name
-sortContacts(CONTACTS) 
-
-def get_int_input(min=1,max=4):
-    '''Return integer input within min and max range'''
-    op = input()
-    if not op.isdigit() or int(op) < min or int(op)> max:
-        print('Invalid Input. Enter again ? \n')
-        op =  get_input()
-    return int(op)
+sortContacts(CONTACTS)
 
 #Program execution part
 exit = False
 while not exit:
     
     print(optionsListMessage)
-    choice = get_int_input()
+    
+    #Get a integer number to choose a option
+    choice = get_int_input(max = 5)
 
     if choice == 1:
         #Adding new contacts
@@ -77,22 +73,39 @@ while not exit:
         #getting a option number which user wants to edit
         choice = get_int_input()
 
-        ###Not Completed
-        
+        #getting name of the chosen field
+        fieldname = attributes[choice-1]
 
+        #asking for new value of the chosen field
+        data = inpt('Enter the new {}? '.format(fieldname))
+
+        #saving the new value in contacts list
+        CONTACTS.setValue(fieldname,data)        
     
     elif choice == 3:
         #Deleting a contact
-        pass
-    
+
+        query = input('Enter name or number of the contacts you want to delete:- ')
+        index = searchContact(CONTACTS,query) #getting index of the required contact in CONTACTS list.
+        if not index:
+            print('No contact found')
+            continue
+
+        #deleting the chosen contact
+        del CONTACTS[index]
+        
     elif choice == 4:
+        #Show contacts in a table
+        df = contactsTable(CONTACTS)
+        print(df)
+        
+    elif choice == 5:
         #Exiting
-        exit == True
+        exit = True
 
 
 
-##df = contactsTable(CONTACTS)
-##print(df)
+
 
 
 
@@ -100,7 +113,8 @@ while not exit:
 
 sortContacts(CONTACTS)
 
-outputfile = open('Modified '+VCF_FILE,'w')
+#Saving contacts in new vcard file
+outputfile = open('Modified '+VCF_FILE_NAME,'w')
 for contact in CONTACTS:
     f = dictToVcard(contact) #returns vcard text from dictionary given
     outputfile.write(f+'\n')
