@@ -1,9 +1,9 @@
-from person import Person
-from functions import *
+from files.person import Person
+from files.functions import *
+import os
 
 
-
-VCF_FILE_NAME = 'Modified sample.vcf'
+VCF_FILE_NAME = os.path.join('files','sample.vcf')
 
 
 attributesListMessage = \

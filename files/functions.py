@@ -13,37 +13,7 @@ TEL;TYPE=CELL;TYPE=pref;TYPE=VOICE:9741062727
 PRODID:-//Apple Inc.//iCloud Web Address Book 1912B18//EN
 REV:2019-07-24T09:44:46Z
 END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-N:Gump;Forrest;;Mr.;
-FN:Forrest Gump
-ORG:Bubba Gump Shrimp Co.
-TITLE:Shrimp Man
-PHOTO;VALUE=URI;TYPE=GIF:;http://www.example.com/dir_photos/my_photo.gif
-TEL;TYPE=WORK,VOICE:(111) 555-1212
-TEL;TYPE=HOME,VOICE:(404) 555-1212
-ADR;TYPE=WORK,PREF:;;100 KTm
-LABEL;TYPE=WORK,PREF:100 Ktm
-ADR;TYPE=HOME:;;42 Plantation jpt
-LABEL;TYPE=HOME:42 Plantation jpt
-EMAIL:forrestgump@example.com
-REV:2008-04-24T19:52:43Z
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-FN:A-Z-Badeda-5Bada-10-BGM-Bajura-7-Vot-DV-FV-PBM-CCM-DCM-CM-VMCM-WCM-INCH-
-VMCP/C-PM-MIN-MP-VML-DL-WL-VL-TL-BL-HL-HH-MOV-NCV-UMLV-OV-NV-Ma-Fe-Da-OC-AP
-A-SF-GOE-NGOE-POE-BOE-UP-NC
-N:;A-Z-Badeda-5Bada-10-BGM-Bajura-7-Vot-DV-FV-PBM-CCM-DCM-CM-VMCM-WCM-INCH-
-VMCP/C-PM-MIN-MP-VML-DL-WL-VL-TL-BL-HL-HH-MOV-NCV-UMLV-OV-NV-Ma-Fe-Da-OC-AP
-A-SF-GOE-NGOE-POE-BOE-UP-NC;;;
-END:VCARD
-BEGIN:VCARD
-VERSION:3.0
-FN:A-Z-Bahungaun-8Bada-10-BGM-Bajura-7-Vot-DV-FV-PBM-CCM-DCM-CM-VMCM-WCM-IN
-N:;A-Z-Bahungaun-8Bada-10-BGM-Bajura-7-Vot-DV-FV-PBM-CCM-DCM-CM-VMCM-WCM-IN;;;
-ADDRESS: Kathmandu, Nepal
-END:VCARD'''
+'''
 
 
 def getSeparateVcards(dump):
@@ -94,9 +64,11 @@ def sortContacts(cons):
 
 def contactsTable(cons):
     '''Returns a pandas table of the contacts'''
+    
     name = [person.name for person in cons]
     phone = [person.phone for person in cons]
-    df = pd.DataFrame({'name':name,'phone':phone}) #create a pandas dataframe of contacts
+    #create a pandas dataframe of contacts
+    df = pd.DataFrame({'Name':name,'Phone':phone}) 
     df.style.set_properties(**{'text-align': 'left'})
     return df
 
