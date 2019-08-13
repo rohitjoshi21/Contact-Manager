@@ -51,7 +51,6 @@ def objToVcard(obj):
     name,address,phone,org,.....'''
     person = obj.__dict__
     person = {replace[key]: value for key,value in person.items() if value != None}
-    print(person)
     vcard = vobject.readOne('\n'.join([f'{k}:{v}' for k, v in person.items()]))
     vcard.name = 'VCARD'
     vcard.useBegin = True
@@ -80,6 +79,16 @@ def getNewContact():
     infs['adr'] = input('Enter your address:- ')
     return infs
 
+
+def searchContactByAttr(cons,query,attribute):
+    i = None
+    for index,contact in enumerate(cons):
+        if contact.getValue(attribute) == query:
+            i = index
+            break
+        
+    return i
+        
 def searchContact(cons,q):
     '''
     Search contacts (cons) with the given query (q)
@@ -92,11 +101,14 @@ def searchContact(cons,q):
     #Checking whether it is phone number or contact name
     if q.isdigit and 9<=len(q)<=10:
         #search the number in phone of contacts and return the index
-        pass
+        
+        index = searchContactByAttr(cons,q,'phone')
+        
 
-    else:
-        pass
+    elif type(q) == str:
         #search the name in contacts and return the index
+
+        index = searchContactByAttr(cons,q,'name')
 
     return index
     

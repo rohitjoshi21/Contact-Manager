@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from files.person import Person
 from files.functions import *
 import os
@@ -81,7 +83,7 @@ while not exit:
         fieldname = attributes[choice-1]
 
         #asking for new value of the chosen field
-        data = inpt('Enter the new {}? '.format(fieldname))
+        data = input('Enter the new {}? '.format(fieldname))
 
         #saving the new value in contacts list
         CONTACTS.setValue(fieldname,data)        
@@ -117,7 +119,7 @@ while not exit:
 sortContacts(CONTACTS)
 
 #Saving contacts in new vcard file
-outputfile = open('Modified '+VCF_FILE_NAME,'w')
+outputfile = open(os.path.join('files','ModifiedContact.vcf','w')
 for contact in CONTACTS:
     f = objToVcard(contact) #returns vcard text from dictionary given
     outputfile.write(f)
