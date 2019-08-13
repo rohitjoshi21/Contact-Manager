@@ -1,6 +1,7 @@
 import re
 import vobject
 import pandas as pd
+import os
 
 #Sample Data
 a =\
@@ -66,8 +67,10 @@ def contactsTable(cons):
     
     name = [person.name for person in cons]
     phone = [person.phone for person in cons]
+    email = [person.email for person in cons]
+    address = [person.address for person in cons]
     #create a pandas dataframe of contacts
-    df = pd.DataFrame({'Name':name,'Phone':phone}) 
+    df = pd.DataFrame({'Name':name,'Phone':phone,'Email':email,'Address':address}) 
     df.style.set_properties(**{'text-align': 'left'})
     return df
 
@@ -111,7 +114,18 @@ def searchContact(cons,q):
         index = searchContactByAttr(cons,q,'name')
 
     return index
-    
+
+def saveContacts(cons,filename):
+    sortContacts(cons)
+
+    #Saving contacts in new vcard file
+    outputfile = open(filename,'w')
+    for contact in cons:
+        f = objToVcard(contact) #returns vcard text from dictionary given
+        outputfile.write(f)
+
+    outputfile.close()
+                      
 if __name__ == '__main__':
     c = getSeparateVcards(a)
     print(vcardToDict(c[-1]))

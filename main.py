@@ -4,8 +4,8 @@ from files.person import Person
 from files.functions import *
 import os
 
-
-VCF_FILE_NAME = os.path.join('files','sample.vcf')
+root_dir = 'files'
+VCF_FILE_NAME = os.path.join(root_dir,'sample2.vcf')
 
 
 attributesListMessage = \
@@ -27,8 +27,9 @@ What do you want to do? \n
 3. Delete a contact
 4. Display contacts
 5. Save and exit
+6. Create New File
 '''
-
+maxOptions = 6
 #Location of vcf file
 
 
@@ -53,7 +54,7 @@ while not exit:
     print(optionsListMessage)
     
     #Get a integer number to choose a option
-    choice = get_int_input(max = 5)
+    choice = get_int_input(max = maxOptions)
 
     if choice == 1:
         #Adding new contacts
@@ -103,25 +104,24 @@ while not exit:
     elif choice == 4:
         #Show contacts in a table
         df = contactsTable(CONTACTS)
+        print('*'*80)
         print(df)
+        print('*'*80)
         
     elif choice == 5:
         #Exiting
+        saveContacts(CONTACTS,VCF_FILE_NAME)
         exit = True
 
+    elif choice == 6:
+        #Creating new vcf file to store new contacts
+
+        saveContacts(CONTACTS,VCF_FILE_NAME)
+        CONTACTS = []
+        VCF_FILE_NAME = os.path.join(root_dir,'NewContact.vcf')
+        
+        
+        
+print('\n\nThank you for using this! Keep supporting us!')
 
 
-
-
-
-
-
-sortContacts(CONTACTS)
-
-#Saving contacts in new vcard file
-outputfile = open(os.path.join('files','ModifiedContact.vcf','w')
-for contact in CONTACTS:
-    f = objToVcard(contact) #returns vcard text from dictionary given
-    outputfile.write(f)
-
-outputfile.close()
