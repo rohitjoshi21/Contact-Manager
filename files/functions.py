@@ -1,6 +1,6 @@
 import re
 import vobject
-import pandas as pd
+from pandas import DataFrame
 import os
 
 #Sample Data
@@ -70,7 +70,7 @@ def contactsTable(cons):
     email = [person.email for person in cons]
     address = [person.address for person in cons]
     #create a pandas dataframe of contacts
-    df = pd.DataFrame({'Name':name,'Phone':phone,'Email':email,'Address':address}) 
+    df = DataFrame({'Name':name,'Phone':phone,'Email':email,'Address':address}) 
     df.style.set_properties(**{'text-align': 'left'})
     return df
 
@@ -84,6 +84,13 @@ def getNewContact():
 
 
 def searchContactByAttr(cons,query,attribute):
+    '''Simple searching
+    cons = list of contact objecta
+    query = keyword to search
+    attribute = field to search'''
+
+    #Not an efficient algorithm
+    
     i = None
     for index,contact in enumerate(cons):
         if contact.getValue(attribute) == query:
@@ -96,8 +103,6 @@ def searchContact(cons,q):
     '''
     Search contacts (cons) with the given query (q)
     And return index of the found contact'''
-    
-    #Not Completed
     
     index = None
     

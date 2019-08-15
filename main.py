@@ -17,6 +17,7 @@ What do you want to edit? \n
 4. Address
 5. Org
 '''
+
 attributes = ['name','phone','email','address','org']
 
 optionsListMessage = \
@@ -120,7 +121,7 @@ while not exit:
         CONTACTS = []
         VCF_FILE_NAME = os.path.join(root_dir,'NewContact.vcf')
         
-        
+    
         
 print('\n\nThank you for using this! Keep supporting us!')
 
