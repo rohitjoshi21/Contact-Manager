@@ -1,16 +1,26 @@
-#!/usr/bin/python3
-
 from files.person import Person
 from files.functions import *
 import os
 
-root_dir = 'files'
-VCF_FILE_NAME = os.path.join(root_dir,'sample2.vcf')
+menubar = \
+'''
+1. Create New File
+2. Open File
+3. Add New Contact
+4. Edit a contact
+5. Delete a contact
+6. Update contacts
+7. Save progress
+8. Exit
+'''
 
+#Getting no of options in menubar
+maxOptions = len(menubar.split('\n'))
 
 attributesListMessage = \
 '''
-What do you want to edit? \n
+What do you want to edit?
+
 1. Name
 2. Phone
 3. Email
@@ -20,44 +30,72 @@ What do you want to edit? \n
 
 attributes = ['name','phone','email','address','org']
 
-optionsListMessage = \
-'''
-What do you want to do? \n
-1. Add new contact
-2. Edit existing contact
-3. Delete a contact
-4. Display contacts
-5. Save and exit
-6. Create New File
-'''
-maxOptions = 6
-#Location of vcf file
-
-
-contents = open(VCF_FILE_NAME).read()
-vcards = getSeparateVcards(contents) #breaks whole vcard file into seperate vcards
-
-
+current_file = None
 CONTACTS = []
-for vcard in vcards:
-    inf = vcardToDict(vcard)  #return dict with all available informations
-    new_contact = Person(inf) #creates a new person object for each contact
-    CONTACTS.append(new_contact) #Add this object in a list
-
-
-#in_place contacts sorting on the basis of attribute name
-sortContacts(CONTACTS)
-
-#Program execution part
+table = None
+#Program Execution
 exit = False
 while not exit:
-    
-    print(optionsListMessage)
-    
-    #Get a integer number to choose a option
+
+    #Screen texts
+    cf = ' ' if current_file == None else current_file
+    print('{:^80}\n'.format('Contact Editor 1.0 '+cf))
+    print
+    print('*'*80)
+    print('{:^80}'.format('Contacts Table'))
+    try:
+        c = len(table.index)
+    except:
+        print('{:^80}'.format('No Table Found.'))
+        print('{:^80}'.format("Enter '6' to update contacts in table"))
+    else:
+        print('%d contacts found'%c,'\n')
+        print(table)
+    print('*'*80)
+    print(menubar)
+
+    print('Choose an option from above menus (1-{}) ?'.format(maxOptions))
     choice = get_int_input(max = maxOptions)
 
     if choice == 1:
+        print('Enter name of the new file?')
+        c = input()
+        if current_file:
+           saveContacts(CONTACTS,current_file)
+        current_file = c
+        table = None
+        CONTACTS = []
+       
+    elif choice == 2:
+        print('Enter path of the file relative to this program?')
+        c = input()
+        
+        try:
+            #check whether c exits or not
+            contents = open(c).read()   
+        except:
+            print('There is no file named ',c)
+            
+        else:
+            if current_file != None:
+                saveContacts(CONTACTS,current_file)
+            current_file = c
+            contents = open(current_file).read()
+            #breaks whole vcard file into seperate vcards
+            vcards = getSeparateVcards(contents) 
+
+            CONTACTS = []
+            for vcard in vcards:
+                inf = vcardToDict(vcard)  #return dict with all available informations
+                new_contact = Person(inf) #creates a new person object for each contact
+                CONTACTS.append(new_contact) #Add this object in a list
+
+
+            #in_place contacts sorting on the basis of attribute name
+            sortContacts(CONTACTS)
+            
+
+    elif choice == 3:
         #Adding new contacts
 
         #Asking for the information of new contact
@@ -65,8 +103,7 @@ while not exit:
         #Adding new contact in contact list
         CONTACTS.append(Person(newcont))
 
-        
-    elif choice == 2:
+    elif choice == 4:
         #Editing exiting contact
 
         query = input('Enter name or number of the contacts you want to edit:- ')
@@ -74,7 +111,7 @@ while not exit:
         if not index:
             print('No contact found')
             continue
-
+        print('Contact found: Name:- {} Phone:- {}'.format(CONTACTS[index].name,CONTACTS[index].phone))
         #Showing options to edit a contact
         print(attributesListMessage)
 
@@ -88,9 +125,9 @@ while not exit:
         data = input('Enter the new {}? '.format(fieldname))
 
         #saving the new value in contacts list
-        CONTACTS.setValue(fieldname,data)        
-    
-    elif choice == 3:
+        CONTACTS[index].setValue(fieldname,data)        
+
+    elif choice == 5:
         #Deleting a contact
 
         query = input('Enter name or number of the contacts you want to delete:- ')
@@ -98,31 +135,25 @@ while not exit:
         if not index:
             print('No contact found')
             continue
-
+        print('Contact found: Name:- {} Phone:- {}'.format(CONTACTS[index].name,CONTACTS[index].phone))
         #deleting the chosen contact
         del CONTACTS[index]
-        
-    elif choice == 4:
-        #Show contacts in a table
-        df = contactsTable(CONTACTS)
-        print('*'*80)
-        print(df)
-        print('*'*80)
-        
-    elif choice == 5:
-        #Exiting
-        saveContacts(CONTACTS,VCF_FILE_NAME)
-        exit = True
+        print('Contact Deleted Successfully')
 
     elif choice == 6:
-        #Creating new vcf file to store new contacts
+        #Update the contacts in table
+        sortContacts(CONTACTS)
+        table = contactsTable(CONTACTS)
 
-        saveContacts(CONTACTS,VCF_FILE_NAME)
-        CONTACTS = []
-        VCF_FILE_NAME = os.path.join(root_dir,'NewContact.vcf')
+    elif choice == 7:
+        saveContacts(CONTACTS,current_file)
+
+    elif choice == 8:
+        yesno = input('\nDo you want to save {} before closing? (Y/N)'.format(current_file))
+
+        if yesno.lower() in ['yes','y','ok']:
+            saveContacts(CONTACTS,current_file)
+        exit = True
         
     
-        
-print('\n\nThank you for using this! Keep supporting us!')
-
-
+    os.system('clear')

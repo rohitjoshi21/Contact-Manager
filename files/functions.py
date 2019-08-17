@@ -37,7 +37,7 @@ def vcardToDict(vcard_raw,required = ['fn','tel','email','photo','adr','org']):
 
 def get_int_input(min=1,max=4):
     '''Return integer input within min and max range'''
-    op = input()
+    op = input('CE>> ')
     if not op.isdigit() or int(op) < min or int(op)> max:
         print('Invalid Input. Enter again ? \n')
         op =  get_input()
