@@ -159,7 +159,7 @@ END:VCARD
 BEGIN:VCARD
 EMAIL:p
 FN:Gopal Budha-Pandhara-Jargaun-Culture
-ORG:['Radio Kmc 104.6 Mh']
+ORG:["['Radio Kmc 104.6 Mh']"]
 TEL:9848693728
 END:VCARD
 BEGIN:VCARD
@@ -224,9 +224,9 @@ FN:Gopi Padhya-Jethan
 TEL:9749045661
 END:VCARD
 BEGIN:VCARD
-ADR:Thanti , 5 Achham,  
+ADR:Thanti  5 Achham  ,  
 FN:Gorakh B Mijar
-ORG:['Suresh Electronic Ritha Bajar']
+ORG:["['Suresh Electronic Ritha Bajar']"]
 TEL:9848689587
 END:VCARD
 BEGIN:VCARD
@@ -234,9 +234,9 @@ FN:Gorakh B Rawal Ji-Delhi
 TEL:9717217035
 END:VCARD
 BEGIN:VCARD
-ADR:Barhabis,1-Selapakha,  
+ADR:Barhabis1-Selapakha  ,  
 FN:Gorakh B Rawat
-ORG:['2071 Adm Batch']
+ORG:["['2071 Adm Batch']"]
 TEL:9868737756
 END:VCARD
 BEGIN:VCARD
@@ -244,9 +244,9 @@ FN:Gorakh B Rokaya-Jugada-7-Bajura
 TEL:9749047789
 END:VCARD
 BEGIN:VCARD
-ADR:Juwapani,  
+ADR:Juwapani  ,  
 FN:Gorakh B Singh
-ORG:['Singh kurana Janral Stor']
+ORG:["['Singh kurana Janral Stor']"]
 TEL:9749012607
 END:VCARD
 BEGIN:VCARD
@@ -273,14 +273,14 @@ FN:Gorkha B Katuwal-ना प्रा स- पसु शाखा -Bgm-Nwp-Sta
 TEL:9848645185
 END:VCARD
 BEGIN:VCARD
-ADR:kankai M. Campus- Jhapa,  
+ADR:kankai M. Campus- Jhapa  ,  
 FN:Kedar Giri
-ORG:['Nepal Publi campus Sangh']
+ORG:["['Nepal Publi campus Sangh']"]
 TEL:9842624615
 END:VCARD
 BEGIN:VCARD
-ADR:Toli, Bajura,  
+ADR:Toli Bajura  ,  
 FN:Krishna Raj Giri
-ORG:['Badimalika Bajura Hotel Dhangadhi, kailali']
+ORG:[["['Badimalika Bajura Hotel Dhangadhi", " kailali']"]]
 TEL:9841747738
 END:VCARD

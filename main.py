@@ -1,3 +1,10 @@
+'''
+Libraries Required:
+    - vobject
+
+'''
+
+
 from files.person import Person
 from files.functions import *
 import os
